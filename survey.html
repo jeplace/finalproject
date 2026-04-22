@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey</title>
+    <link rel="stylesheet" href="fallout.css">
+    <script src="fallout.js"></script>
+</head>
+
+<body>
+    <script>
+        let play = function () { document.getElementById("audio").play() }
+    </script>
+    <div class="header">
+        <a href="https://fallout.bethesda.net/en" target="_blank"><img src="images/vaultboy.jpg" alt="Vault Boy"
+                width="75" style="float:right;" onclick="play()"><audio id="audio"
+                src="media/ui_experience_up.mp3"></audio></a>
+        <table>
+            <td><a href="index.html" id="navigation">[Home]</a></td>
+            <td><a href="background.html" id="navigation">[Background]</a></td>
+            <td><a href="survey.html" id="navigation">[Survey]</a></td>
+        </table>
+        <h1 id="title">Survey</h1>
+    </div>
+    <div class="main">
+        <p style="text-align: center;">The Fallout series has had many games released over the years, with more on the
+            way.</p>
+        <form id="form" action="3games.html" method="GET">
+            <p>Have you ever played a Fallout game?</p>
+            <select id="y/n" name="y/n" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select><br>
+            <p>If yes, which is your favorite?</p>
+            <select id="game" name="game" required>
+                <option value="null">Haven't played</option>
+                <option value="1">Fallout 1</option>
+                <option value="2">Fallout 2</option>
+                <option value="3">Fallout Tactics</option>
+                <option value="4">Fallout 3</option>
+                <option value="5">Fallout New Vegas</option>
+                <option value="6">Fallout 4</option>
+                <option value="7">Fallout 76</option>
+            </select><br>
+            <button type="submit">Submit</button>
+        </form>
+        <script>
+            const form = document.getElementById("form")
+            form.onsubmit = function (event) {
+                event.preventDefault();
+                let answer = document.getElementById("y/n")
+                let game = document.getElementById("game")
+                if (answer.value == "yes" && game.value == "null") {
+                    alert("Which game is your favorite?");
+                    return;
+                }
+                form.submit();
+            };
+        </script>
+    </div>
+</body>
+
+</html>
